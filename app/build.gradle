@@ -1,0 +1,45 @@
+apply plugin: 'com.android.application'
+
+def VUFORIA_SDK_DIR = '..'
+def NATIVE_LIB_DIR = 'vuforia-sdk/lib'
+def JAR_DIR = 'vuforia-sdk/java/vuforia'
+
+android {
+    archivesBaseName = rootProject.projectDir.getName()
+    buildToolsVersion '27.0.3'
+    compileSdkVersion 24
+    defaultConfig {
+        applicationId "com.hermesinnovationlab.hermesplay"
+        minSdkVersion 9
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+        debug {
+            minifyEnabled false
+            debuggable true
+        }
+    }
+    // Ensure that Vuforia datasets placed in the assets folder do not get compressed as
+    // this can significantly increase their loading time
+    aaptOptions {
+        noCompress 'dat'
+    }
+    sourceSets.main {
+        jni.srcDirs = []
+        jniLibs.srcDir "$VUFORIA_SDK_DIR/$NATIVE_LIB_DIR/"
+    }
+}
+
+dependencies {
+    //implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    api files("$VUFORIA_SDK_DIR/$JAR_DIR/Vuforia.jar")
+    api 'com.android.support:appcompat-v7:24.2.1'
+    api 'com.journeyapps:zxing-android-embedded:3.5.0'
+    api files("$VUFORIA_SDK_DIR/$JAR_DIR/Vuforia.jar")
+}

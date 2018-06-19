@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/camera_overlay_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#AAA">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="106dp"
+            android:text="Point your phone at this marker"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#000" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="300dp"
+            android:layout_height="150dp"
+            android:layout_below="@+id/textView"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/watermark" />
+
+        <Button
+            android:id="@+id/fullscreenButton"
+            android:layout_width="181dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/fullscreen_button"
+            android:fontFamily="sans-serif-light"
+            android:text="View Fullscreen"
+            android:textColor="#FFF"
+            android:textSize="18dp"/>
+        
+</RelativeLayout>
